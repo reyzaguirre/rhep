@@ -40,7 +40,7 @@ Tai <- function(trait, geno, env, rep, data, conf = 0.95, title = NULL,
 
   # Check data
 
-  lc <- CheckData02(trait, geno, env, rep, data)
+  lc <- CheckData02(trait, geno, env, data)
 
   # Error messages
 
