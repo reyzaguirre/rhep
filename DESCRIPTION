@@ -1,8 +1,10 @@
 Package: rhep
-Title: What the package does (one line)
+Type: Package
+Title: Raul Eyzaguirre's R code
 Version: 0.1
-Authors@R: "First Last <first.last@example.com> [aut, cre]"
-Description: What the package does (one paragraph)
+Author: Raul Eyzaguirre
+Maintainer: Raul Eyzaguirre <reyzaguirre@gmail.com>
+Description: Miscellaneous R functions
 Depends: R (>= 3.1.2)
-License: What license is it under?
+License: GPL-3
 LazyData: true
