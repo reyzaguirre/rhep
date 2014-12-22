@@ -13,6 +13,6 @@ library("devtools")
 Then type:
 
 ```{r eval=F}
-install_github("rhep", username="reyzaguirre")
+install_github("reyzaguirre/rhep")
 library(rhep)
 ```
