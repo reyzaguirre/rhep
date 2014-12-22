@@ -51,15 +51,15 @@ Significance of PCs are evaluated only with \code{method = "AMMI"} and if
 the data are balanced.
 }
 \examples{
-# Load data
-urlfile <- "https://raw.githubusercontent.com/SweetPotatoImprov/StatTools/master/AMMI/METdata.dat"
-mydata <- read.table(urlfile, header=T)
+# The data
+head(METdata)
+str(METdata)
 
 # Run AMMI for trait y, biplot1 by default
-AMMI("y", "geno", "env", "rep", mydata)
+AMMI("y", "geno", "env", "rep", METdata)
 
 # Run AMMI for trait y, biplot2
-AMMI("y", "geno", "env", "rep", mydata, biplot = 2)
+AMMI("y", "geno", "env", "rep", METdata, biplot = 2)
 }
 \author{
 Raul Eyzaguirre

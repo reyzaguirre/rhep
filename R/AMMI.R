@@ -31,15 +31,15 @@
 #' biplot, Crop Sci., Vol 40: 597-605.
 #' @seealso \code{svd}
 #' @examples
-#' # Load data
-#' urlfile <- "https://raw.githubusercontent.com/SweetPotatoImprov/StatTools/master/AMMI/METdata.dat"
-#' mydata <- read.table(urlfile, header=T)
+#' # The data
+#' head(METdata)
+#' str(METdata)
 #'
 #' # Run AMMI for trait y, biplot1 by default
-#' AMMI("y", "geno", "env", "rep", mydata)
+#' AMMI("y", "geno", "env", "rep", METdata)
 #'
 #' # Run AMMI for trait y, biplot2
-#' AMMI("y", "geno", "env", "rep", mydata, biplot = 2)
+#' AMMI("y", "geno", "env", "rep", METdata, biplot = 2)
 #' @export
 
 AMMI <- function(trait, geno, env, rep, data, method = "AMMI", f = .5,
@@ -134,12 +134,12 @@ AMMI <- function(trait, geno, env, rep, data, method = "AMMI", f = .5,
 #' biplot, Crop Sci., Vol 40: 597-605.
 #' @seealso \code{svd}
 #' @examples
-#' # Load data
-#' urlfile <- "https://raw.githubusercontent.com/SweetPotatoImprov/StatTools/master/AMMI/METdata.dat"
-#' mydata <- read.table(urlfile, header=T)
+#' # The data
+#' head(METdata)
+#' str(METdata)
 #'
 #' # Compute GxE means
-#' int.mean <- tapply(mydata$y, list(mydata$geno, mydata$env), mean, na.rm = T)
+#' int.mean <- tapply(METdata$y, list(METdata$geno, METdata$env), mean, na.rm = T)
 #'
 #' # Run AMMI with GxE means matrix, biplot2
 #' AMMIwithMeans(int.mean, trait = "y", biplot = 2)
