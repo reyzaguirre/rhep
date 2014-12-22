@@ -40,12 +40,12 @@ an ANOVA table for a RCBD with blocks nested into environments. If the data set 
 unbalanced, a warning is produced.
 }
 \examples{
-# Load the data
-urlfile <- "https://raw.githubusercontent.com/SweetPotatoImprov/StatTools/master/AMMI/METdata.dat"
-mydata <- read.table(urlfile, header=T)
+# The data
+head(METdata)
+str(METdata)
 
 # Run Tai for trait y
-Tai("y", "geno", "env", "rep", mydata)
+Tai("y", "geno", "env", "rep", METdata)
 }
 \author{
 Raul Eyzaguirre

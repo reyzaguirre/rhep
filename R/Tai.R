@@ -21,12 +21,12 @@
 #' Tai, G. C. C. (1971). Genotypic Stability Analysis and Its Application to Potato
 #' Regional Trials, Crop Science, Vol 11.
 #' @examples
-#' # Load the data
-#' urlfile <- "https://raw.githubusercontent.com/SweetPotatoImprov/StatTools/master/AMMI/METdata.dat"
-#' mydata <- read.table(urlfile, header=T)
+#' # The data
+#' head(METdata)
+#' str(METdata)
 #'
 #' # Run Tai for trait y
-#' Tai("y", "geno", "env", "rep", mydata)
+#' Tai("y", "geno", "env", "rep", METdata)
 #' @export
 
 Tai <- function(trait, geno, env, rep, data, conf = 0.95, title = NULL,
