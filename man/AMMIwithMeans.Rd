@@ -32,7 +32,7 @@ AMMIwithMeans(int.mean, trait = NULL, rep.num = NULL, rdf = NULL,
 
 \item{xlab}{Xlab for biplot1.}
 
-\item{color}{Color for lines, symbols and names for environments, genotypes and axes.}
+\item{color}{Color for lines, symbols and/or labels for environments, genotypes and axes.}
 
 \item{...}{Additional graphic parameters.}
 }

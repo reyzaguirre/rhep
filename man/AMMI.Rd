@@ -31,7 +31,7 @@ AMMI(trait, geno, env, rep, data, method = "AMMI", f = 0.5, biplot = 1,
 
 \item{xlab}{Xlab for biplot1.}
 
-\item{color}{Color for lines, symbols and names for environments, genotypes and axes.}
+\item{color}{Color for lines, symbols and/or labels for environments, genotypes and axes.}
 
 \item{...}{Additional graphic parameters.}
 }
