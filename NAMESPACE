@@ -2,4 +2,7 @@
 
 export(AMMI)
 export(AMMIwithMeans)
+export(RegStab)
 export(Tai)
+export(mve.rcbd)
+export(mve.rcbd.met)

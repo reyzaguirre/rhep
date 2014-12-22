@@ -31,7 +31,7 @@ It returns the Tai graph for stability analysis and the values of alpha
 and lambda for each genotype.
 }
 \description{
-This function runs Tai stability analysis (Tai, G. C. C., 1971).
+This function runs Tai's stability analysis (Tai, G. C. C., 1971).
 It assumes a RCBD with fixed effects for genotypes and random effects for environments.
 }
 \details{
