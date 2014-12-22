@@ -2,3 +2,4 @@
 
 export(AMMI)
 export(AMMIwithMeans)
+export(Tai)
