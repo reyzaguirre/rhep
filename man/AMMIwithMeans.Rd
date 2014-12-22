@@ -57,7 +57,7 @@ head(METdata)
 str(METdata)
 
 # Compute GxE means
-int.mean <- tapply(METdata$y, list(METdata$geno, METdata$env), mean, na.rm = T)
+int.mean <- tapply(METdata$y, list(METdata$geno, METdata$env), mean, na.rm = TRUE)
 
 # Run AMMI with GxE means matrix, biplot2
 AMMIwithMeans(int.mean, trait = "y", biplot = 2)
