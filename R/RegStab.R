@@ -36,10 +36,10 @@
 #' str(METdata)
 #'
 #' # Run regression stability analysis
-#' RegStab("y", "geno", "env", "rep", METdata)
+#' rsa("y", "geno", "env", "rep", METdata)
 #' @export
 
-RegStab <- function(trait, geno, env, rep, data, maxp = 0.05){
+rsa <- function(trait, geno, env, rep, data, maxp = 0.05){
 
   # Everything as factor
 
@@ -49,10 +49,10 @@ RegStab <- function(trait, geno, env, rep, data, maxp = 0.05){
 
   # Check data and estimate missing values
 
-  lc <- CheckData02(trait, geno, env, data)
+  lc <- checkdata02(trait, geno, env, data)
 
   if (lc$c1 == 0 | lc$c2 == 0 | lc$c3 == 0){
-    est.data <- mve.rcbd.met(trait, geno, env, rep, data, maxp, tol = 1e-06)
+    est.data <- mvemet(trait, geno, env, rep, data, maxp, tol = 1e-06)
     data[,trait] <- est.data$new.data[,5]
     nmis <- est.data$est.num
     warning(paste("Warning: The data set is unbalanced, ",

@@ -30,10 +30,10 @@
 #' head(temp)
 #'
 #' # Estimate the missing value
-#' mve.rcbd("y", "geno", "rep", temp)
+#' mveb("y", "geno", "rep", temp)
 #' @export
 
-mve.rcbd <- function(trait, geno, rep, data, maxp = 0.05, tol = 1e-06){
+mveb <- function(trait, geno, rep, data, maxp = 0.05, tol = 1e-06){
 
   # Everything as factor
 
@@ -42,7 +42,7 @@ mve.rcbd <- function(trait, geno, rep, data, maxp = 0.05, tol = 1e-06){
 
   # Check data
 
-  lc <- CheckData01(trait, geno, data)
+  lc <- checkdata01(trait, geno, data)
 
   # Error messages
 
@@ -125,10 +125,10 @@ mve.rcbd <- function(trait, geno, rep, data, maxp = 0.05, tol = 1e-06){
 #' str(METdata)
 #'
 #' # Estimate the missing values
-#' mve.rcbd.met("y", "geno", "env", "rep", METdata)
+#' mvemet("y", "geno", "env", "rep", METdata)
 #' @export
 
-mve.rcbd.met <- function(trait, geno, env, rep, data, maxp = 0.05, tol = 1e-06){
+mvemet <- function(trait, geno, env, rep, data, maxp = 0.05, tol = 1e-06){
 
   # Everything as factor
 
@@ -138,7 +138,7 @@ mve.rcbd.met <- function(trait, geno, env, rep, data, maxp = 0.05, tol = 1e-06){
 
   # Check data
 
-  lc <- CheckData02(trait, geno, env, data)
+  lc <- checkdata02(trait, geno, env, data)
 
   # Error messages
 

@@ -26,10 +26,10 @@
 #' str(METdata)
 #'
 #' # Run Tai for trait y
-#' Tai("y", "geno", "env", "rep", METdata)
+#' tai("y", "geno", "env", "rep", METdata)
 #' @export
 
-Tai <- function(trait, geno, env, rep, data, conf = 0.95, title = NULL,
+tai <- function(trait, geno, env, rep, data, conf = 0.95, title = NULL,
                 color = c("darkorange", "black", "gray"), ...) {
 
   # Everything as factor
@@ -40,7 +40,7 @@ Tai <- function(trait, geno, env, rep, data, conf = 0.95, title = NULL,
 
   # Check data
 
-  lc <- CheckData02(trait, geno, env, data)
+  lc <- checkdata02(trait, geno, env, data)
 
   # Error messages
 

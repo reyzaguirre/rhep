@@ -36,13 +36,13 @@
 #' str(METdata)
 #'
 #' # Run AMMI for trait y, biplot1 by default
-#' AMMI("y", "geno", "env", "rep", METdata)
+#' ammi("y", "geno", "env", "rep", METdata)
 #'
 #' # Run AMMI for trait y, biplot2
-#' AMMI("y", "geno", "env", "rep", METdata, biplot = 2)
+#' ammi("y", "geno", "env", "rep", METdata, biplot = 2)
 #' @export
 
-AMMI <- function(trait, geno, env, rep, data, method = "AMMI", f = .5,
+ammi <- function(trait, geno, env, rep, data, method = "AMMI", f = .5,
                  biplot = 1, biplot1 = "effects", title = NULL, xlab = NULL,
                  color = c("darkorange", "black", "gray"), ...){
 
@@ -54,7 +54,7 @@ AMMI <- function(trait, geno, env, rep, data, method = "AMMI", f = .5,
 
   # Check data
 
-  lc <- CheckData02(trait, geno, env, data)
+  lc <- checkdata02(trait, geno, env, data)
 
   # Error messages
 
@@ -94,11 +94,11 @@ AMMI <- function(trait, geno, env, rep, data, method = "AMMI", f = .5,
     rms <- NULL
   }
 
-  # Run AMMIwithMeans
+  # Run ammi2
 
-  AMMIwithMeans(int.mean, trait = trait, rep.num = rep.num, rdf = rdf, rms = rms,
-                method = method, f = f, biplot = biplot, biplot1 = biplot1,
-                title = title, xlab = xlab, color = color, ...)
+  ammi2(int.mean, trait = trait, rep.num = rep.num, rdf = rdf, rms = rms,
+        method = method, f = f, biplot = biplot, biplot1 = biplot1,
+        title = title, xlab = xlab, color = color, ...)
 }
 
 #' AMMI or GGE with data from an interaction means matrix
@@ -142,16 +142,15 @@ AMMI <- function(trait, geno, env, rep, data, method = "AMMI", f = .5,
 #' int.mean <- tapply(METdata$y, list(METdata$geno, METdata$env), mean, na.rm = TRUE)
 #'
 #' # Run AMMI with GxE means matrix, biplot2
-#' AMMIwithMeans(int.mean, trait = "y", biplot = 2)
+#' ammi2(int.mean, trait = "y", biplot = 2)
 #'
 #' # Run GGE with GxE means matrix, biplot2
-#' AMMIwithMeans(int.mean, trait = "y", method = "GGE", biplot = 2)
+#' ammi2(int.mean, trait = "y", method = "GGE", biplot = 2)
 #' @export
 
-AMMIwithMeans <- function(int.mean, trait = NULL, rep.num = NULL, rdf = NULL,
-                          rms = NULL, method = "AMMI", f = .5, biplot = 1,
-                          biplot1 = "effects", title = NULL, xlab = NULL,
-                          color = c("darkorange", "black", "gray"), ...){
+ammi2 <- function(int.mean, trait = NULL, rep.num = NULL, rdf = NULL, rms = NULL,
+                  method = "AMMI", f = .5, biplot = 1, biplot1 = "effects",
+                  title = NULL, xlab = NULL, color = c("darkorange", "black", "gray"), ...){
 
   # Data
 

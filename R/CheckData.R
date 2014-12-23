@@ -9,7 +9,7 @@
 #' @details This function checks if there is more than one replication in a RCBD,
 #' if there is any genotype without data, and if the design is balanced.
 
-CheckData01 <- function(trait, geno, data){
+checkdata01 <- function(trait, geno, data){
   # Check frequencies by geno
   nmis <- sum(is.na(data[,trait]))
   subdata <- subset(data, is.na(data[,trait]) == 0)
@@ -28,7 +28,7 @@ CheckData01 <- function(trait, geno, data){
 }
 
 #' Check data for a MET in a RCBD
-#' 
+#'
 #' This function checks the frequencies of genotypes in each environment in a RCBD.
 #' @param trait The trait to analyze
 #' @param geno The genotypes
@@ -40,7 +40,7 @@ CheckData01 <- function(trait, geno, data){
 #' several environments, if there is any genotype without data for some specific environments,
 #' and if the design is balanced.
 
-CheckData02 <- function(trait, geno, env, data){
+checkdata02 <- function(trait, geno, env, data){
   # Check frequencies by geno and env
   nmis <- sum(is.na(data[,trait]))
   subdata <- subset(data, is.na(data[,trait]) == 0)
