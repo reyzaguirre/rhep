@@ -3,6 +3,7 @@
 export(ammi)
 export(ammi2)
 export(elston)
+export(msdplot)
 export(mveb)
 export(mvemet)
 export(pesekbaker)
