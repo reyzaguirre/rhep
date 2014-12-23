@@ -17,6 +17,19 @@
 #' and at least one datum for each treatment must be loaded. Experimental data
 #' with only one replication, any treatment without data, or more missing values than
 #' specified in \code{maxp} will generate an error message.
+#' @example
+#' # The data
+#' head(METdata)
+#' str(METdata)
+#'
+#' # Choose one environment
+#' temp <- subset(METdata, env=="TM80N")
+#'
+#' # Missing value in the first row
+#' head(temp)
+#'
+#' # Estimate the missing value
+#' mve.rcbd("y", "geno", "rep", temp)
 #' @export
 
 mve.rcbd <- function(trait, geno, rep, data, maxp = 0.05, tol = 1e-06){
@@ -105,6 +118,13 @@ mve.rcbd <- function(trait, geno, rep, data, maxp = 0.05, tol = 1e-06){
 #' and at least one datum for each treatment must be loaded. Experimental data
 #' with only one replication, any treatment without data, or more missing values than
 #' specified in \code{maxp} will generate an error message.
+#' @example
+#' # The data
+#' head(METdata)
+#' str(METdata)
+#'
+#' # Estimate the missing values
+#' mve.rcbd.met("y", "geno", "env", "rep", METdata)
 #' @export
 
 mve.rcbd.met <- function(trait, geno, env, rep, data, maxp = 0.05, tol = 1e-06){
