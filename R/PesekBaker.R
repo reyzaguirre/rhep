@@ -63,10 +63,10 @@ pesekbaker <- function(traits, geno, env, rep, data, dgg = NULL, units = "sdu", 
 
   for (i in 1:nt){
     abc <- data.frame(c1 = data[,traits[i]], c2 = data[,geno], c3 = data[,env], c4 = data[,rep])
-    model <- lmer(c1 ~ (1|c2) + (1|c2:c3) + (1|c3/c4), data = abc)
-    gv[i] <- VarCorr(model)$c2[1]
-    pv[i] <- VarCorr(model)$c2[1] + VarCorr(model)$'c2:c3'[1]/ne +
-      attr(VarCorr(model), "sc")^2/ne/nr
+    model <- lme4::lmer(c1 ~ (1|c2) + (1|c2:c3) + (1|c3/c4), data = abc)
+    gv[i] <- lme4::VarCorr(model)$c2[1]
+    pv[i] <- lme4::VarCorr(model)$c2[1] + lme4::VarCorr(model)$'c2:c3'[1]/ne +
+      attr(lme4::VarCorr(model), "sc")^2/ne/nr
   }
 
   # compute correlation and covariance matrices
