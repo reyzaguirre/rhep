@@ -10,14 +10,14 @@ install.packages("devtools")
 library("devtools")
 ```
 
-Then type:
+Then type
 
 ```{r eval=F}
 install_github("reyzaguirre/rhep")
 library(rhep)
 ```
 
-Type
+to install the package and
 
 ```{r eval=F}
 help(package=rhep)
