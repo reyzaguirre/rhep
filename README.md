@@ -16,3 +16,11 @@ Then type:
 install_github("reyzaguirre/rhep")
 library(rhep)
 ```
+
+Type
+
+```{r eval=F}
+help(package=rhep)
+```
+
+to see the documentation.
