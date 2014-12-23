@@ -53,11 +53,11 @@ Significance of PCs are evaluated only with \code{method = "AMMI"} and if
 }
 \examples{
 # The data
-head(metdata)
-str(metdata)
+head(met8x12)
+str(met8x12)
 
 # Compute GxE means
-int.mean <- tapply(metdata$y, list(metdata$geno, metdata$env), mean, na.rm = TRUE)
+int.mean <- tapply(met8x12$y, list(met8x12$geno, met8x12$env), mean, na.rm = TRUE)
 
 # Run AMMI with GxE means matrix, biplot2
 ammi2(int.mean, trait = "y", biplot = 2)

@@ -40,11 +40,11 @@ specified in \code{maxp} will generate an error message.
 }
 \examples{
 # The data
-head(metdata)
-str(metdata)
+head(met8x12)
+str(met8x12)
 
 # Estimate the missing values
-mvemet("y", "geno", "env", "rep", metdata)
+mvemet("y", "geno", "env", "rep", met8x12)
 }
 \author{
 Raul Eyzaguirre.

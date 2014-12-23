@@ -32,11 +32,11 @@
 #' J. Agric. Sci. 28: 556-580.
 #' @examples
 #' # The data
-#' head(metdata)
-#' str(metdata)
+#' head(met8x12)
+#' str(met8x12)
 #'
 #' # Run regression stability analysis
-#' rsa("y", "geno", "env", "rep", metdata)
+#' rsa("y", "geno", "env", "rep", met8x12)
 #' @export
 
 rsa <- function(trait, geno, env, rep, data, maxp = 0.05){

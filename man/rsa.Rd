@@ -41,11 +41,11 @@ individual yield (Y) on the mean yield of all environments for each genotype (X)
 }
 \examples{
 # The data
-head(metdata)
-str(metdata)
+head(met8x12)
+str(met8x12)
 
 # Run regression stability analysis
-rsa("y", "geno", "env", "rep", metdata)
+rsa("y", "geno", "env", "rep", met8x12)
 }
 \author{
 Raul Eyzaguirre

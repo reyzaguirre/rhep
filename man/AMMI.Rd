@@ -52,14 +52,14 @@ the data are balanced.
 }
 \examples{
 # The data
-head(metdata)
-str(metdata)
+head(met8x12)
+str(met8x12)
 
 # Run AMMI for trait y, biplot1 by default
-ammi("y", "geno", "env", "rep", metdata)
+ammi("y", "geno", "env", "rep", met8x12)
 
 # Run AMMI for trait y, biplot2
-ammi("y", "geno", "env", "rep", metdata, biplot = 2)
+ammi("y", "geno", "env", "rep", met8x12, biplot = 2)
 }
 \author{
 Raul Eyzaguirre

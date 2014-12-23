@@ -22,11 +22,11 @@
 #' Regional Trials, Crop Science, Vol 11.
 #' @examples
 #' # The data
-#' head(metdata)
-#' str(metdata)
+#' head(met8x12)
+#' str(met8x12)
 #'
 #' # Run Tai for trait y
-#' tai("y", "geno", "env", "rep", metdata)
+#' tai("y", "geno", "env", "rep", met8x12)
 #' @export
 
 tai <- function(trait, geno, env, rep, data, conf = 0.95, title = NULL,

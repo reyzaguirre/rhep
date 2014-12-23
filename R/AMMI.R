@@ -32,14 +32,14 @@
 #' @seealso \code{svd}
 #' @examples
 #' # The data
-#' head(metdata)
-#' str(metdata)
+#' head(met8x12)
+#' str(met8x12)
 #'
 #' # Run AMMI for trait y, biplot1 by default
-#' ammi("y", "geno", "env", "rep", metdata)
+#' ammi("y", "geno", "env", "rep", met8x12)
 #'
 #' # Run AMMI for trait y, biplot2
-#' ammi("y", "geno", "env", "rep", metdata, biplot = 2)
+#' ammi("y", "geno", "env", "rep", met8x12, biplot = 2)
 #' @export
 
 ammi <- function(trait, geno, env, rep, data, method = "AMMI", f = .5,
@@ -135,11 +135,11 @@ ammi <- function(trait, geno, env, rep, data, method = "AMMI", f = .5,
 #' @seealso \code{svd}
 #' @examples
 #' # The data
-#' head(metdata)
-#' str(metdata)
+#' head(met8x12)
+#' str(met8x12)
 #'
 #' # Compute GxE means
-#' int.mean <- tapply(metdata$y, list(metdata$geno, metdata$env), mean, na.rm = TRUE)
+#' int.mean <- tapply(met8x12$y, list(met8x12$geno, met8x12$env), mean, na.rm = TRUE)
 #'
 #' # Run AMMI with GxE means matrix, biplot2
 #' ammi2(int.mean, trait = "y", biplot = 2)
