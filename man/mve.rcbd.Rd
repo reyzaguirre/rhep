@@ -27,13 +27,28 @@ The \code{new.data} data frame contains the experimental layout and columns
 estimated values.
 }
 \description{
-Function to estimate missing values for a Randomized Complete Block Design (RCBD).
+Function to estimate missing values for a Randomized Complete Block Design (RCBD) by
+the least squares method.
 }
 \details{
 A \code{data.frame} with data for a RCBD with at least two replications
 and at least one datum for each treatment must be loaded. Experimental data
 with only one replication, any treatment without data, or more missing values than
 specified in \code{maxp} will generate an error message.
+}
+\examples{
+# The data
+head(METdata)
+str(METdata)
+
+# Choose one environment
+temp <- subset(METdata, env=="TM80N")
+
+# Missing value in the first row
+head(temp)
+
+# Estimate the missing value
+mve.rcbd("y", "geno", "rep", temp)
 }
 \author{
 Raul Eyzaguirre.

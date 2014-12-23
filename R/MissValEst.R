@@ -1,6 +1,7 @@
 #' Estimation of missing values for a RCBD
 #'
-#' Function to estimate missing values for a Randomized Complete Block Design (RCBD).
+#' Function to estimate missing values for a Randomized Complete Block Design (RCBD) by
+#' the least squares method.
 #' @param trait The trait to estimate missing values.
 #' @param geno The genotypes.
 #' @param rep The replications or blocks. A RCBD is assumed.
@@ -17,7 +18,7 @@
 #' and at least one datum for each treatment must be loaded. Experimental data
 #' with only one replication, any treatment without data, or more missing values than
 #' specified in \code{maxp} will generate an error message.
-#' @example
+#' @examples
 #' # The data
 #' head(METdata)
 #' str(METdata)
@@ -100,7 +101,7 @@ mve.rcbd <- function(trait, geno, rep, data, maxp = 0.05, tol = 1e-06){
 #' Estimation of missing values for a MET in a RCBD
 #'
 #' Function to estimate missing values for a Multi Environment Trial (MET) with a
-#' Randomized Complete Block Design (RCBD).
+#' Randomized Complete Block Design (RCBD) by the least squares method.
 #' @param trait The trait to estimate missing values.
 #' @param geno The genotypes.
 #' @param env The environments.
@@ -118,7 +119,7 @@ mve.rcbd <- function(trait, geno, rep, data, maxp = 0.05, tol = 1e-06){
 #' and at least one datum for each treatment must be loaded. Experimental data
 #' with only one replication, any treatment without data, or more missing values than
 #' specified in \code{maxp} will generate an error message.
-#' @example
+#' @examples
 #' # The data
 #' head(METdata)
 #' str(METdata)

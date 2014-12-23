@@ -30,13 +30,21 @@ estimated values.
 }
 \description{
 Function to estimate missing values for a Multi Environment Trial (MET) with a
-Randomized Complete Block Design (RCBD).
+Randomized Complete Block Design (RCBD) by the least squares method.
 }
 \details{
 A \code{data.frame} with data for a MET in a RCBD with at least two replications
 and at least one datum for each treatment must be loaded. Experimental data
 with only one replication, any treatment without data, or more missing values than
 specified in \code{maxp} will generate an error message.
+}
+\examples{
+# The data
+head(METdata)
+str(METdata)
+
+# Estimate the missing values
+mve.rcbd.met("y", "geno", "env", "rep", METdata)
 }
 \author{
 Raul Eyzaguirre.
