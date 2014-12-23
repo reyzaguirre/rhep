@@ -20,11 +20,11 @@
 #' specified in \code{maxp} will generate an error message.
 #' @examples
 #' # The data
-#' head(METdata)
-#' str(METdata)
+#' head(metdata)
+#' str(metdata)
 #'
 #' # Choose one environment
-#' temp <- subset(METdata, env=="TM80N")
+#' temp <- subset(metdata, env=="TM80N")
 #'
 #' # Missing value in the first row
 #' head(temp)
@@ -121,11 +121,11 @@ mveb <- function(trait, geno, rep, data, maxp = 0.05, tol = 1e-06){
 #' specified in \code{maxp} will generate an error message.
 #' @examples
 #' # The data
-#' head(METdata)
-#' str(METdata)
+#' head(metdata)
+#' str(metdata)
 #'
 #' # Estimate the missing values
-#' mvemet("y", "geno", "env", "rep", METdata)
+#' mvemet("y", "geno", "env", "rep", metdata)
 #' @export
 
 mvemet <- function(trait, geno, env, rep, data, maxp = 0.05, tol = 1e-06){
