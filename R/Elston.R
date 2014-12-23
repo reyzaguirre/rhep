@@ -7,7 +7,7 @@
 #' @param lb Lower bound. 1 for k = min(x) and 2 for k = (n*min(x) - max(x))/(n-1)
 #' @author Raul Eyzaguirre
 #' @details The Elston index is a weight free index.
-#' @return It returns the Elston index value (\code{$Elston.Index }) and the Elston index value
+#' @return It returns the Elston index value (\code{$Elston.Index}) and the Elston index value
 #' sorted in descending order ($Sorted.Elston.Index).
 #' @references
 #' Elston, R. C. (1963). A weight-free index for the purpose of ranking or selection

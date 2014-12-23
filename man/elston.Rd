@@ -16,7 +16,7 @@ elston(traits, geno, data, lb = 1)
 \item{lb}{Lower bound. 1 for k = min(x) and 2 for k = (n*min(x) - max(x))/(n-1)}
 }
 \value{
-It returns the Elston index value (\code{$Elston.Index }) and the Elston index value
+It returns the Elston index value (\code{$Elston.Index}) and the Elston index value
 sorted in descending order ($Sorted.Elston.Index).
 }
 \description{
