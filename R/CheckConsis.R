@@ -5,6 +5,7 @@
 #' AND ANALYSIS OF SWEETPOTATO TRIALS document.
 #' @param plot.size Plot size in square meters.
 #' @param data The name of the data frame.
+#' @details The data frame must use the following labels:
 #' @return It returns a file with name checks.txt.
 #' @author Raul Eyzaguirre.
 #' @examples
