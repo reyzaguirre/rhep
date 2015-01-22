@@ -94,11 +94,11 @@ ammi <- function(trait, geno, env, rep, data, method = "AMMI", f = .5,
     rms <- NULL
   }
 
-  # Run ammi2
+  # Run ammigxe
 
-  ammi2(int.mean, trait = trait, rep.num = rep.num, rdf = rdf, rms = rms,
-        method = method, f = f, biplot = biplot, biplot1 = biplot1,
-        title = title, xlab = xlab, color = color, ...)
+  ammigxe(int.mean, trait = trait, rep.num = rep.num, rdf = rdf, rms = rms,
+          method = method, f = f, biplot = biplot, biplot1 = biplot1,
+          title = title, xlab = xlab, color = color, ...)
 }
 
 #' AMMI or GGE with data from an interaction means matrix
@@ -142,15 +142,15 @@ ammi <- function(trait, geno, env, rep, data, method = "AMMI", f = .5,
 #' int.mean <- tapply(met8x12$y, list(met8x12$geno, met8x12$env), mean, na.rm = TRUE)
 #'
 #' # Run AMMI with GxE means matrix, biplot2
-#' ammi2(int.mean, trait = "y", biplot = 2)
+#' ammigxe(int.mean, trait = "y", biplot = 2)
 #'
 #' # Run GGE with GxE means matrix, biplot2
-#' ammi2(int.mean, trait = "y", method = "GGE", biplot = 2)
+#' ammigxe(int.mean, trait = "y", method = "GGE", biplot = 2)
 #' @export
 
-ammi2 <- function(int.mean, trait = NULL, rep.num = NULL, rdf = NULL, rms = NULL,
-                  method = "AMMI", f = .5, biplot = 1, biplot1 = "effects",
-                  title = NULL, xlab = NULL, color = c("darkorange", "black", "gray"), ...){
+ammigxe <- function(int.mean, trait = NULL, rep.num = NULL, rdf = NULL, rms = NULL,
+                    method = "AMMI", f = .5, biplot = 1, biplot1 = "effects",
+                    title = NULL, xlab = NULL, color = c("darkorange", "black", "gray"), ...){
 
   # Data
 
