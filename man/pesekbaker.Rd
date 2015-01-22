@@ -25,15 +25,15 @@ pesekbaker(traits, geno, env, rep, data, dgg = NULL, units = "sdu",
 \item{sf}{Selected fraction, defaults to 0.1.}
 }
 \value{
-It returns the desired genetic gains in actual units (\code{$Desired.Genetic.Gains}),
-the estimated standard deviations (\code{$Standard.Deviations}),
-the estimated genetic variances (\code{$Genetic.Variances}),
-the estimated correlation matrix (\code{$Correlation.Matrix}),
-the index coefficients (\code{$Index.Coefficients}),
-the response to selection (\code{$Response.to.Selection}),
-the standardized response to selection (\code{$Std.Response.to.Selection}),
-the Pesek-Baker index value (\code{$Pesek.Baker.Index}),
-and the Pesek-Baker index value sorted in descending order (\code{$Sorted.Pesek.Baker.Index}).
+It returns the desired genetic gains in actual units,
+the estimated standard deviations,
+the estimated genetic variances,
+the estimated correlation matrix,
+the index coefficients,
+the response to selection,
+the standardized response to selection,
+the Pesek-Baker index value,
+and the Pesek-Baker index value sorted in descending order.
 }
 \description{
 Function to compute the Pesek-Baker index (Pesek, J. and R.J. Baker., 1969).

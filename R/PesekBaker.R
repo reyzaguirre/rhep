@@ -22,15 +22,15 @@
 #' desired genetic gain will be one standard deviation, no matter if \code{units} is set
 #' as \code{"actual"} or \code{"sdu"}.
 #' To compute the index the package \code{lme4} is needed.
-#' @return It returns the desired genetic gains in actual units (\code{$Desired.Genetic.Gains}),
-#' the estimated standard deviations (\code{$Standard.Deviations}),
-#' the estimated genetic variances (\code{$Genetic.Variances}),
-#' the estimated correlation matrix (\code{$Correlation.Matrix}),
-#' the index coefficients (\code{$Index.Coefficients}),
-#' the response to selection (\code{$Response.to.Selection}),
-#' the standardized response to selection (\code{$Std.Response.to.Selection}),
-#' the Pesek-Baker index value (\code{$Pesek.Baker.Index}),
-#' and the Pesek-Baker index value sorted in descending order (\code{$Sorted.Pesek.Baker.Index}).
+#' @return It returns the desired genetic gains in actual units,
+#' the estimated standard deviations,
+#' the estimated genetic variances,
+#' the estimated correlation matrix,
+#' the index coefficients,
+#' the response to selection,
+#' the standardized response to selection,
+#' the Pesek-Baker index value,
+#' and the Pesek-Baker index value sorted in descending order.
 
 #' @references
 #' Pesek, J. and R.J. Baker.(1969). Desired improvement in relation to selection indices.
