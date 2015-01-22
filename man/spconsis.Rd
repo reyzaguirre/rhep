@@ -114,7 +114,7 @@ The data frame must use the following labels:
  str(pjpz09)
 
  # Check the data
- spconsis(4.5, pjpz09)
+ spconsis(pjpz09, 4.5)
 }
 \author{
 Raul Eyzaguirre.
