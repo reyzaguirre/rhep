@@ -3,24 +3,26 @@ rhep
 
 Raul Eyzaguirre's R code.
 
-To install this package you need package `devtools`:
+### Installation
+
+To install this package you need package `devtools`. Type the following lines
+in the R console:
 
 ```{r eval=F}
 install.packages("devtools")
-library("devtools")
+devtools::install_github("reyzaguirre/rhep")
 ```
 
-Then type
+### Usage
+
+To load the package type:
 
 ```{r eval=F}
-install_github("reyzaguirre/rhep")
 library(rhep)
 ```
 
-to install the package and
+To see the documentation type:
 
 ```{r eval=F}
 help(package=rhep)
 ```
-
-to see the documentation.
