@@ -24,5 +24,5 @@ library(rhep)
 To see the documentation type:
 
 ```{r eval=F}
-help(package=rhep)
+help(package = rhep)
 ```
