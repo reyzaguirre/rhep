@@ -8,7 +8,7 @@
 #' @param initmu Initial value for the location parameter.
 #' @param inits Initial value for the scale parameter.
 #' @param tol Tolerance for the iterative procedure.
-#' @author Raul Eyzaguirre
+#' @author Raul Eyzaguirre.
 #' @details By default the initial values are set to the sample mean and
 #' standard deviation.
 #' @return It returns the estimated location and scale parameters for each iteration.

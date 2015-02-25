@@ -4,6 +4,7 @@
 #'
 #' @param n The size of \eqn{M}.
 #' @param counts The counts for the repeated elements.
+#' @author Raul Eyzaguirre.
 #' @details
 #' For a set \eqn{M} with \eqn{k} unique elements with associate counts
 #' \eqn{n_1, n_2, \ldots, n_k}, you only need to specify in the \code{counts}
