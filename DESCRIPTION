@@ -6,6 +6,5 @@ Author: Raul Eyzaguirre
 Maintainer: Raul Eyzaguirre <reyzaguirre@gmail.com>
 Description: Miscellaneous R functions
 Depends: R (>= 3.1.2)
-Imports: lme4
 License: GPL-3
 LazyData: true

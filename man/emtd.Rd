@@ -2,7 +2,7 @@
 % Please edit documentation in R/EMtdist.R
 \name{emtd}
 \alias{emtd}
-\title{Estimate the location and scale parameters of a t distribution}
+\title{Location and scale parameters estimation of a t distribution}
 \usage{
 emtd(y, v, initmu = mean(y), inits = sd(y), tol = 1e-04)
 }

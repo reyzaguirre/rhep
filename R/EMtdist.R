@@ -1,4 +1,4 @@
-#' Estimate the location and scale parameters of a t distribution
+#' Location and scale parameters estimation of a t distribution
 #'
 #' EM algorithm to estimate the location and scale of a t distribution
 #' for given degrees of freedom.
