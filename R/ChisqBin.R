@@ -1,8 +1,8 @@
 #' Chi-square goodness of fit test for binomial distribution
 #'
 #' This function performs a chi-square goodness of fit test for a binomial distribution.
-#' @param x The observed values
-#' @param f The frequencies for the observed values
+#' @param x The observed values.
+#' @param f The frequencies for the observed values.
 #' @param n Binomial parameter n.
 #' @param p Binomial parameter pi.
 #' @author Raul Eyzaguirre.
@@ -10,7 +10,7 @@
 #' If there are categories with expected frequencies less than 5 or less than 1 a warning
 #' is shown.
 #' @return It returns a table with the contribution to the chi-square statistic for each category,
-#' the chi-square statistic, the degrees of freedom and the p-value.
+#' the chi-square statistic, the degrees of freedom, and the p-value.
 #' @examples
 #' x <- 0:6
 #' f <- c(334, 369, 191, 63, 22, 12, 9)
