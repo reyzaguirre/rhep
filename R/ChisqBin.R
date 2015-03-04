@@ -1,6 +1,6 @@
-#' Chi-square goodness of fit test for a binomial distribution
+#' Chi-square goodness of fit test for binomial distribution
 #'
-#' Performs a chi-square goodness of fit test for a binomial distribution.
+#' This function performs a chi-square goodness of fit test for a binomial distribution.
 #' @param x The observed values
 #' @param f The frequencies for the observed values
 #' @param n Binomial parameter n.
@@ -55,7 +55,7 @@ chisq.bin <- function(x, f, n = NULL, p = NULL){
 
   chisq <- (obs - esp)^2/esp
   chisq.t <- sum(chisq)
-  dft <- length(chisq) - k
+  dft <- length(chisq) - k - 1
   pvt <- 1 - pchisq(chisq.t, dft)
 
   # Warnings
@@ -72,7 +72,12 @@ chisq.bin <- function(x, f, n = NULL, p = NULL){
 
   # Return
 
+  dist.info <- paste("Chi-square goodness of fit test for a binomial(",
+                     n, ", ", p, ") distribution", sep="")
+
   tabla <- data.frame(x = xc, obs.f = obs, exp.f = esp, chisq.cont = chisq)
-  list(Contribution_table = tabla, Chi_square_test = chisq.t,
-       degrees_of_freedom = dft, p_value = pvt)
+  tabla$x <- as.character(tabla$x)
+
+  list(Test = dist.info, Contribution_table = tabla, Chi_square_test = chisq.t,
+       Degrees_of_freedom = dft, p_value = pvt)
 }

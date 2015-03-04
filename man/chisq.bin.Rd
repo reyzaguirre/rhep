@@ -2,7 +2,7 @@
 % Please edit documentation in R/ChisqBin.R
 \name{chisq.bin}
 \alias{chisq.bin}
-\title{Chi-square goodness of fit test for a binomial distribution}
+\title{Chi-square goodness of fit test for binomial distribution}
 \usage{
 chisq.bin(x, f, n = NULL, p = NULL)
 }
@@ -20,7 +20,7 @@ It returns a table with the contribution to the chi-square statistic for each ca
 the chi-square statistic, the degrees of freedom and the p-value.
 }
 \description{
-Performs a chi-square goodness of fit test for a binomial distribution.
+This function performs a chi-square goodness of fit test for a binomial distribution.
 }
 \details{
 If \code{p} is not specified, then it is estimated from the data.
