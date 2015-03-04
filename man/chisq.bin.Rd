@@ -9,7 +9,7 @@ chisq.bin(x, f, n = NULL, p = NULL)
 \arguments{
 \item{x}{The observed values.}
 
-\item{f}{The frequencies for the observed values.}
+\item{f}{The observed counts.}
 
 \item{n}{Binomial parameter n.}
 
@@ -24,7 +24,7 @@ This function performs a chi-square goodness of fit test for a binomial distribu
 }
 \details{
 If \code{p} is not specified, then it is estimated from the data.
-If there are categories with expected frequencies less than 5 or less than 1 a warning
+If there are categories with expected counts less than 5 or less than 1 a warning
 is shown.
 }
 \examples{
