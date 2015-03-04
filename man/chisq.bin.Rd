@@ -7,9 +7,9 @@
 chisq.bin(x, f, n = NULL, p = NULL)
 }
 \arguments{
-\item{x}{The observed values}
+\item{x}{The observed values.}
 
-\item{f}{The frequencies for the observed values}
+\item{f}{The frequencies for the observed values.}
 
 \item{n}{Binomial parameter n.}
 
@@ -17,7 +17,7 @@ chisq.bin(x, f, n = NULL, p = NULL)
 }
 \value{
 It returns a table with the contribution to the chi-square statistic for each category,
-the chi-square statistic, the degrees of freedom and the p-value.
+the chi-square statistic, the degrees of freedom, and the p-value.
 }
 \description{
 This function performs a chi-square goodness of fit test for a binomial distribution.
