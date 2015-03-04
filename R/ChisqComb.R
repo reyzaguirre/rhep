@@ -29,7 +29,7 @@ chisq.comb <- function(chisq.test, combine){
   top <- dim(temp)[1]
 
   # Error messages
-  if (lower > 0 & upper < top)
+  if (lower > 1 & upper < top)
     stop("Only categories on the extremes can be combined.")
 
   if(lower == 1){
