@@ -1,3 +1,4 @@
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/reyzaguirre/rhep?branch=master)](https://ci.appveyor.com/project/reyzaguirre/rhep)
 [![Travis-CI Build Status](https://travis-ci.org/reyzaguirre/rhep.png?branch=master)](https://travis-ci.org/reyzaguirre/rhep)
 [![Coverage Status](https://img.shields.io/coveralls/reyzaguirre/rhep.svg)](https://coveralls.io/r/reyzaguirre/rhep?branch=master)
 
