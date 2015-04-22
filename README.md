@@ -1,5 +1,7 @@
 [![Travis-CI Build Status](https://travis-ci.org/reyzaguirre/rhep.png?branch=master)](https://travis-ci.org/reyzaguirre/rhep)
 
+[![Coverage Status](https://img.shields.io/coveralls/reyzaguirre/rhep.svg)](https://coveralls.io/r/reyzaguirre/rhep?branch=master)
+
 rhep
 ====
 
