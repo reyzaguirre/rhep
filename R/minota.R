@@ -19,10 +19,10 @@
 #' @return Devuelve la nota final estimada con un intervalo de prediccion,
 #' y el coeficiente de determinacion del modelo.
 #' @examples
-#' mygrade(curso = 1, pa1 = 12)
+#' minota(curso = 1, pa1 = 12)
 #' @export
 
-mygrade <- function(curso = NULL, vez = NULL, pp = NULL, prob = 0.95,
+minota <- function(curso = NULL, vez = NULL, pp = NULL, prob = 0.95,
                     pa1= NULL, pa2= NULL, pa3 = NULL, pa4 = NULL,
                     pi1 = NULL, pi2 = NULL, ep = NULL){
 
