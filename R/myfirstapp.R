@@ -5,5 +5,6 @@
 #' @export
 
 histo_plot <- function () {
-  shiny::runApp("inst/shinyapps/myfirstapp")
+  dirfiles <- paste(system.file(package='rhep'), "/shinyapps/myfirstapp", sep="")
+  shiny::runApp(dirfiles)
 }
