@@ -1,7 +1,11 @@
-#' My first Shiny app
+#' Simulate and plot from a normal distribution
 #'
-#' A shiny user interface fragment to show an histogram.
-#'
+#' This function simulates 1000 random samples from a skew normal distribution
+#' for specified values of the mean, standard deviation and skewness parameter.
+#' @author Raul Eyzaguirre.
+#' @details It uses package \code{sn} to simulate the data and package \code{shiny}
+#' for the web layout.
+#' @return It returns a histogram and a boxplot for the simulated data.
 #' @export
 
 mdaplot <- function () {
