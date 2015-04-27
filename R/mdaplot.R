@@ -4,7 +4,7 @@
 #'
 #' @export
 
-histo_plot <- function () {
-  dirfiles <- paste(system.file(package='rhep'), "/shinyapps/myfirstapp", sep="")
+mdaplot <- function () {
+  dirfiles <- paste(system.file(package='rhep'), "/shinyapps/mdaplot", sep="")
   shiny::runApp(dirfiles)
 }
