@@ -3,7 +3,7 @@
 shiny::shinyUI(shiny::fluidPage(
 
   # Application title
-  shiny::titlePanel("Media, varianza y asimetria"),
+  shiny::titlePanel("Media, desviación estándar y asimetría"),
 
   # Sidebar with a slider input mean, variance and skew parameter
 
@@ -15,12 +15,12 @@ shiny::shinyUI(shiny::fluidPage(
                          max = 10,
                          value = 0),
       shiny::sliderInput("dest",
-                         "Desviacion estandar:",
+                         "Desviación estándar:",
                          min = 0.5,
                          max = 3,
                          value = 1),
       shiny::sliderInput("asim",
-                         "Asimetria:",
+                         "Asimetría:",
                          min = -10,
                          max = 10,
                          value = 0)
