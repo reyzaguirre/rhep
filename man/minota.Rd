@@ -11,42 +11,42 @@ minota(curso = NULL, vez = NULL, pp = NULL, prob = 0.95, pa1 = NULL,
 \arguments{
 \item{curso}{1 o 2 (corresponde a EP1 o EP2).}
 
-\item{vez}{Numero de veces que se lleva el curso (1, 2 o 3).}
+\item{vez}{Número de veces que se lleva el curso (1, 2 o 3).}
 
 \item{pp}{Promedio ponderado.}
 
-\item{prob}{Probabilidad para la prediccion.}
+\item{prob}{Probabilidad para la predicción.}
 
-\item{pa1}{Practica de aula 1.}
+\item{pa1}{Práctica de aula 1.}
 
-\item{pa2}{Practica de aula 2.}
+\item{pa2}{Práctica de aula 2.}
 
-\item{pa3}{Practica de aula 3.}
+\item{pa3}{Práctica de aula 3.}
 
-\item{pa4}{Practica de aula 4.}
+\item{pa4}{Práctica de aula 4.}
 
-\item{pi1}{Practica integrada 1.}
+\item{pi1}{Práctica integrada 1.}
 
-\item{pi2}{Practica integrada 2.}
+\item{pi2}{Práctica integrada 2.}
 
 \item{ep}{Examen parcial.}
 }
 \value{
-Devuelve la nota final estimada con un intervalo de prediccion,
-y el coeficiente de determinacion del modelo.
+Devuelve la nota final estimada con un intervalo de predicción,
+y el coeficiente de determinación del modelo.
 }
 \description{
-Esta funcion predice la nota final del curso basado en datos historicos y un
-modelo de regresion lineal.
+Esta función predice la nota final del curso basado en datos históricos y un
+modelo de regresión lineal.
 }
 \details{
-No es necesario introducir todos los parametros, el modelo solo
+No es necesario introducir todos los parámetros, el modelo solo
 considera los que son introducidos.
 }
 \examples{
 minota(curso = 1, pa1 = 12)
 }
 \author{
-Raul Eyzaguirre.
+Raúl Eyzaguirre.
 }
 

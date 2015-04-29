@@ -1,23 +1,23 @@
 #' Predice la nota final del curso EP1 y EP2
 #'
-#' Esta funcion predice la nota final del curso basado en datos historicos y un
-#' modelo de regresion lineal.
+#' Esta función predice la nota final del curso basado en datos históricos y un
+#' modelo de regresión lineal.
 #' @param curso 1 o 2 (corresponde a EP1 o EP2).
-#' @param vez Numero de veces que se lleva el curso (1, 2 o 3).
+#' @param vez Número de veces que se lleva el curso (1, 2 o 3).
 #' @param pp Promedio ponderado.
-#' @param prob Probabilidad para la prediccion.
-#' @param pa1 Practica de aula 1.
-#' @param pa2 Practica de aula 2.
-#' @param pa3 Practica de aula 3.
-#' @param pa4 Practica de aula 4.
-#' @param pi1 Practica integrada 1.
-#' @param pi2 Practica integrada 2.
+#' @param prob Probabilidad para la predicción.
+#' @param pa1 Práctica de aula 1.
+#' @param pa2 Práctica de aula 2.
+#' @param pa3 Práctica de aula 3.
+#' @param pa4 Práctica de aula 4.
+#' @param pi1 Práctica integrada 1.
+#' @param pi2 Práctica integrada 2.
 #' @param ep Examen parcial.
-#' @author Raul Eyzaguirre.
-#' @details No es necesario introducir todos los parametros, el modelo solo
+#' @author Raúl Eyzaguirre.
+#' @details No es necesario introducir todos los parámetros, el modelo solo
 #' considera los que son introducidos.
-#' @return Devuelve la nota final estimada con un intervalo de prediccion,
-#' y el coeficiente de determinacion del modelo.
+#' @return Devuelve la nota final estimada con un intervalo de predicción,
+#' y el coeficiente de determinación del modelo.
 #' @examples
 #' minota(curso = 1, pa1 = 12)
 #' @export
@@ -37,19 +37,21 @@ minota <- function(curso = NULL, vez = NULL, pp = NULL, prob = 0.95,
 
   if (is.null(vez) == 0)
     if (vez != 1 & vez != 2 & vez != 3)
-      stop("Ingrese valor correcto para numero de veces que lleva el curso: 1, 2 o 3.")
+      stop("Ingrese valor correcto para número de veces que lleva el curso: 1, 2 o 3.")
 
   if (is.null(pp) == 0)
     if (pp < 0 | pp > 20)
       stop("Ingrese valor correcto para promedio ponderado: entre 0 y 20.")
 
-  if (length(notas) == 0)
-    stop("Debe ingresar al menos una nota.")
-
-  for (i in 1:length(notas)){
-    if (notas[[i]] < 0 | notas[[i]] > 20)
-      stop(paste("Ingrese valor correcto para ", names(notas)[i], ": entre 0 y 20.", sep=""))
+  if (length(notas) > 0){
+    for (i in 1:length(notas)){
+      if (notas[[i]] < 0 | notas[[i]] > 20)
+        stop(paste("Ingrese valor correcto para ", names(notas)[i], ": entre 0 y 20.", sep=""))
     }
+  }
+
+  if (length(notas) == 0 & is.null(vez) == 1 & is.null(pp) == 1)
+    stop("Ingrese al menos un predictor.")
 
   # Datos
 
@@ -59,26 +61,47 @@ minota <- function(curso = NULL, vez = NULL, pp = NULL, prob = 0.95,
   if (curso == 2)
     subdata <- subset(grades, substring(grades$cs, 1, 1) == "5")
 
-  # Modelos
+  # Modelo solo con notas
 
   if (is.null(vez) == 1 & is.null(pp) == 1){
     formula <- as.formula(paste("fg ~ ", paste(names(notas), collapse = "+")))
     new <- data.frame(t(notas))
   }
 
+  # Modelo con pp y opcional notas
+
   if (is.null(vez) == 1 & is.null(pp) == 0){
-    formula <- as.formula(paste("fg ~ ", paste(names(notas), collapse = "+"), "+ pp"))
-    new <- data.frame(t(notas), pp = pp)
+    if (length(notas) > 0){
+      formula <- as.formula(paste("fg ~ ", paste(names(notas), collapse = "+"), "+ pp"))
+      new <- data.frame(t(notas), pp = pp)
+    } else {
+      formula <- as.formula("fg ~ pp")
+      new <- data.frame(pp = pp)
+    }
   }
+
+  # Modelo con vez y opcional notas
 
   if (is.null(vez) == 0 & is.null(pp) == 1){
-    formula <- as.formula(paste("fg ~ ", paste(names(notas), collapse = "+"), "+ factor(nt)"))
-    new <- data.frame(t(notas), nt = vez)
+    if (length(notas) > 0){
+      formula <- as.formula(paste("fg ~ ", paste(names(notas), collapse = "+"), "+ factor(nt)"))
+      new <- data.frame(t(notas), nt = vez)
+    } else {
+      formula <- as.formula("fg ~ factor(nt)")
+      new <- data.frame(nt = vez)
+    }
   }
 
+  # Modelo con vez y pp y opcional notas
+
   if (is.null(vez) == 0 & is.null(pp) == 0){
-    formula <- as.formula(paste("fg ~ ", paste(names(notas), collapse = "+"), "+ factor(nt) + pp"))
-    new <- data.frame(t(notas), nt = vez, pp = pp)
+    if (length(notas) > 0){
+      formula <- as.formula(paste("fg ~ ", paste(names(notas), collapse = "+"), "+ factor(nt) + pp"))
+      new <- data.frame(t(notas), nt = vez, pp = pp)
+    } else {
+      formula <- as.formula("fg ~ factor(nt) + pp")
+      new <- data.frame(nt = vez, pp = pp)
+    }
   }
 
   model <- lm(formula, data = subdata)
@@ -95,11 +118,10 @@ minota <- function(curso = NULL, vez = NULL, pp = NULL, prob = 0.95,
 
   pfg <- cbind(pfg, prob)
 
-  colnames(pfg) <- c("Prediccion", "Minima", "Maxima", "Probabilidad")
+  colnames(pfg) <- c("Predicción", "Mínima", "Máxima", "Probabilidad")
 
   # Output
 
   list(Nota_final = pfg,
-       Explicacion_del_modelo = paste(round(summary(model)$r.squared*100, 0), "%", sep=""))
-
+       Explicación_del_modelo = paste(round(summary(model)$r.squared*100, 0), "%", sep=""))
 }
