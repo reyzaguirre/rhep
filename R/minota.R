@@ -123,5 +123,5 @@ minota <- function(curso = NULL, vez = NULL, pp = NULL, prob = 0.95,
   # Output
 
   list(Nota_final = pfg,
-       Explicación_del_modelo = paste(round(summary(model)$r.squared*100, 0), "%", sep=""))
+       Explicacion_del_modelo = paste(round(summary(model)$r.squared*100, 0), "%", sep=""))
 }
