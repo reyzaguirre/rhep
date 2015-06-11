@@ -24,7 +24,7 @@ chisq.bin <- function(x, f, n = NULL, p = NULL){
   if (is.null(p) == 1){
     p <- sum(x*f) / sum(n*f)
     k <- 1
-  }
+  } else k <- 0
 
   # Expected frequencies
 
