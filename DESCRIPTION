@@ -5,7 +5,7 @@ Version: 0.2.0
 Date: 2015-04-28
 Author: Raúl Eyzaguirre
 Maintainer: Raúl Eyzaguirre <reyzaguirre@gmail.com>
-Description: Miscellaneous R functions
+Description: Miscellaneous R functions.
 Depends: R (>= 3.1.2)
 Imports: shiny, sn
 License: GPL-3

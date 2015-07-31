@@ -35,11 +35,11 @@ minota <- function(curso = NULL, vez = NULL, pp = NULL, prob = 0.95,
   if (curso != 1 & curso != 2)
     stop("Ingrese valor correcto para curso: 1 o 2.")
 
-  if (is.null(vez) == 0)
+  if (!is.null(vez))
     if (vez != 1 & vez != 2 & vez != 3)
       stop("Ingrese valor correcto para número de veces que lleva el curso: 1, 2 o 3.")
 
-  if (is.null(pp) == 0)
+  if (!is.null(pp))
     if (pp < 0 | pp > 20)
       stop("Ingrese valor correcto para promedio ponderado: entre 0 y 20.")
 
@@ -50,57 +50,57 @@ minota <- function(curso = NULL, vez = NULL, pp = NULL, prob = 0.95,
     }
   }
 
-  if (length(notas) == 0 & is.null(vez) == 1 & is.null(pp) == 1)
+  if (length(notas) == 0 & is.null(vez) & is.null(pp))
     stop("Ingrese al menos un predictor.")
 
   # Datos
 
   if (curso == 1)
-    subdata <- subset(grades, substring(grades$cs, 1, 1) == "4")
+    subdata <- subset(grades, substring(grades$seccion, 1, 1) == "4")
 
   if (curso == 2)
-    subdata <- subset(grades, substring(grades$cs, 1, 1) == "5")
+    subdata <- subset(grades, substring(grades$seccion, 1, 1) == "5")
 
   # Modelo solo con notas
 
-  if (is.null(vez) == 1 & is.null(pp) == 1){
-    formula <- as.formula(paste("fg ~ ", paste(names(notas), collapse = "+")))
+  if (is.null(vez) & is.null(pp)){
+    formula <- as.formula(paste("final ~ ", paste(names(notas), collapse = "+")))
     new <- data.frame(t(notas))
   }
 
   # Modelo con pp y opcional notas
 
-  if (is.null(vez) == 1 & is.null(pp) == 0){
+  if (is.null(vez) & !is.null(pp)){
     if (length(notas) > 0){
-      formula <- as.formula(paste("fg ~ ", paste(names(notas), collapse = "+"), "+ pp"))
+      formula <- as.formula(paste("final ~ ", paste(names(notas), collapse = "+"), "+ pp"))
       new <- data.frame(t(notas), pp = pp)
     } else {
-      formula <- as.formula("fg ~ pp")
+      formula <- as.formula("final ~ pp")
       new <- data.frame(pp = pp)
     }
   }
 
   # Modelo con vez y opcional notas
 
-  if (is.null(vez) == 0 & is.null(pp) == 1){
+  if (!is.null(vez) & is.null(pp)){
     if (length(notas) > 0){
-      formula <- as.formula(paste("fg ~ ", paste(names(notas), collapse = "+"), "+ factor(nt)"))
-      new <- data.frame(t(notas), nt = vez)
+      formula <- as.formula(paste("final ~ ", paste(names(notas), collapse = "+"), "+ factor(vez)"))
+      new <- data.frame(t(notas), vez = vez)
     } else {
-      formula <- as.formula("fg ~ factor(nt)")
-      new <- data.frame(nt = vez)
+      formula <- as.formula("final ~ factor(vez)")
+      new <- data.frame(vez = vez)
     }
   }
 
   # Modelo con vez y pp y opcional notas
 
-  if (is.null(vez) == 0 & is.null(pp) == 0){
+  if (!is.null(vez) & !is.null(pp)){
     if (length(notas) > 0){
-      formula <- as.formula(paste("fg ~ ", paste(names(notas), collapse = "+"), "+ factor(nt) + pp"))
-      new <- data.frame(t(notas), nt = vez, pp = pp)
+      formula <- as.formula(paste("final ~ ", paste(names(notas), collapse = "+"), "+ factor(vez) + pp"))
+      new <- data.frame(t(notas), vez = vez, pp = pp)
     } else {
-      formula <- as.formula("fg ~ factor(nt) + pp")
-      new <- data.frame(nt = vez, pp = pp)
+      formula <- as.formula("final ~ factor(vez) + pp")
+      new <- data.frame(vez = vez, pp = pp)
     }
   }
 
@@ -108,20 +108,20 @@ minota <- function(curso = NULL, vez = NULL, pp = NULL, prob = 0.95,
 
   # Prediccion
 
-  pfg <- predict(model, new, interval = "p", level = prob)
-  pfg <- round(pfg, 1)
+  pfinal <- predict(model, new, interval = "p", level = prob)
+  pfinal <- round(pfinal, 1)
 
-  if (pfg[1] <  0) pfg[1] <-  0
-  if (pfg[1] > 20) pfg[1] <- 20
-  if (pfg[2] <  0) pfg[2] <-  0
-  if (pfg[3] > 20) pfg[3] <- 20
+  if (pfinal[1] <  0) pfinal[1] <-  0
+  if (pfinal[1] > 20) pfinal[1] <- 20
+  if (pfinal[2] <  0) pfinal[2] <-  0
+  if (pfinal[3] > 20) pfinal[3] <- 20
 
-  pfg <- cbind(pfg, prob)
+  pfinal <- cbind(pfinal, prob)
 
-  colnames(pfg) <- c("Predicción", "Mínima", "Máxima", "Probabilidad")
+  colnames(pfinal) <- c("Predicción", "Mínima", "Máxima", "Probabilidad")
 
   # Output
 
-  list(Nota_final = pfg,
+  list(Nota_final = pfinal,
        Explicacion_del_modelo = paste(round(summary(model)$r.squared*100, 0), "%", sep=""))
 }
