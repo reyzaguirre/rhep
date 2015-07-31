@@ -23,7 +23,7 @@ chisq.pois <- function(x, f, lambda = NULL){
   if (is.null(lambda) == 1){
     lambda <- sum(x*f) / sum(f)
     k <- 1
-  }
+  } else k <- 0
 
   # Expected frequencies
 
