@@ -24,7 +24,7 @@
 
 minota <- function(curso = NULL, vez = NULL, pp = NULL, prob = 0.95,
                     pa1= NULL, pa2= NULL, pa3 = NULL, pa4 = NULL,
-                    pi1 = NULL, pi2 = NULL, ep = NULL){
+                    pi1 = NULL, pi2 = NULL, ep = NULL) {
 
   # Lista de notas
 
@@ -43,10 +43,10 @@ minota <- function(curso = NULL, vez = NULL, pp = NULL, prob = 0.95,
     if (pp < 0 | pp > 20)
       stop("Ingrese valor correcto para promedio ponderado: entre 0 y 20.")
 
-  if (length(notas) > 0){
-    for (i in 1:length(notas)){
+  if (length(notas) > 0) {
+    for (i in 1:length(notas)) {
       if (notas[[i]] < 0 | notas[[i]] > 20)
-        stop(paste("Ingrese valor correcto para ", names(notas)[i], ": entre 0 y 20.", sep=""))
+        stop(paste("Ingrese valor correcto para ", names(notas)[i], ": entre 0 y 20.", sep = ""))
     }
   }
 
@@ -63,15 +63,15 @@ minota <- function(curso = NULL, vez = NULL, pp = NULL, prob = 0.95,
 
   # Modelo solo con notas
 
-  if (is.null(vez) & is.null(pp)){
+  if (is.null(vez) & is.null(pp)) {
     formula <- as.formula(paste("final ~ ", paste(names(notas), collapse = "+")))
     new <- data.frame(t(notas))
   }
 
   # Modelo con pp y opcional notas
 
-  if (is.null(vez) & !is.null(pp)){
-    if (length(notas) > 0){
+  if (is.null(vez) & !is.null(pp)) {
+    if (length(notas) > 0) {
       formula <- as.formula(paste("final ~ ", paste(names(notas), collapse = "+"), "+ pp"))
       new <- data.frame(t(notas), pp = pp)
     } else {
@@ -82,8 +82,8 @@ minota <- function(curso = NULL, vez = NULL, pp = NULL, prob = 0.95,
 
   # Modelo con vez y opcional notas
 
-  if (!is.null(vez) & is.null(pp)){
-    if (length(notas) > 0){
+  if (!is.null(vez) & is.null(pp)) {
+    if (length(notas) > 0) {
       formula <- as.formula(paste("final ~ ", paste(names(notas), collapse = "+"), "+ factor(vez)"))
       new <- data.frame(t(notas), vez = vez)
     } else {
@@ -94,8 +94,8 @@ minota <- function(curso = NULL, vez = NULL, pp = NULL, prob = 0.95,
 
   # Modelo con vez y pp y opcional notas
 
-  if (!is.null(vez) & !is.null(pp)){
-    if (length(notas) > 0){
+  if (!is.null(vez) & !is.null(pp)) {
+    if (length(notas) > 0) {
       formula <- as.formula(paste("final ~ ", paste(names(notas), collapse = "+"), "+ factor(vez) + pp"))
       new <- data.frame(t(notas), vez = vez, pp = pp)
     } else {
@@ -123,5 +123,5 @@ minota <- function(curso = NULL, vez = NULL, pp = NULL, prob = 0.95,
   # Output
 
   list(Nota_final = pfinal,
-       Explicacion_del_modelo = paste(round(summary(model)$r.squared*100, 0), "%", sep=""))
+       Explicacion_del_modelo = paste(round(summary(model)$r.squared * 100, 0), "%", sep = ""))
 }

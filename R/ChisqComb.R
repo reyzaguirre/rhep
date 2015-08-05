@@ -20,7 +20,7 @@
 #' chisq.comb(output, combine = c(5, 6, 7))
 #' @export
 
-chisq.comb <- function(chisq.test, combine){
+chisq.comb <- function(chisq.test, combine) {
 
   temp <- chisq.test$Contribution_table
 
@@ -32,22 +32,22 @@ chisq.comb <- function(chisq.test, combine){
   if (lower > 1 & upper < top)
     stop("Only categories on the extremes can be combined.")
 
-  if(lower == 1){
+  if(lower == 1) {
     chisq.test$Contribution_table <- temp[upper:top,]
-    chisq.test$Contribution_table[1, 1] <- paste("0-", temp[upper, 1], sep="")
+    chisq.test$Contribution_table[1, 1] <- paste("0-", temp[upper, 1], sep = "")
     chisq.test$Contribution_table[1, 2] <- sum(temp[1:upper, 2])
     chisq.test$Contribution_table[1, 3] <- sum(temp[1:upper, 3])
     temp <- chisq.test$Contribution_table
-    chisq.test$Contribution_table[, 4] <- (temp[, 2] - temp[, 3])^2/temp[, 3]
+    chisq.test$Contribution_table[, 4] <- (temp[, 2] - temp[, 3])^2 / temp[, 3]
     chisq.test$Chi_square_test <- sum(chisq.test$Contribution_table[, 4])
     chisq.test$Degrees_of_freedom <- chisq.test$Degrees_of_freedom - length(combine) + 1
   } else {
-    chisq.test$Contribution_table <- temp[1:lower,]
-    chisq.test$Contribution_table[lower, 1] <- paste(temp[lower, 1], "+", sep="")
+    chisq.test$Contribution_table <- temp[1:lower, ]
+    chisq.test$Contribution_table[lower, 1] <- paste(temp[lower, 1], "+", sep = "")
     chisq.test$Contribution_table[lower, 2] <- sum(temp[lower:top, 2])
     chisq.test$Contribution_table[lower, 3] <- sum(temp[lower:top, 3])
     temp <- chisq.test$Contribution_table
-    chisq.test$Contribution_table[, 4] <- (temp[, 2] - temp[, 3])^2/temp[, 3]
+    chisq.test$Contribution_table[, 4] <- (temp[, 2] - temp[, 3])^2 / temp[, 3]
     chisq.test$Chi_square_test <- sum(chisq.test$Contribution_table[, 4])
     chisq.test$Degrees_of_freedom <- chisq.test$Degrees_of_freedom - length(combine) + 1
   }

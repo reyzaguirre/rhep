@@ -9,6 +9,6 @@
 #' @export
 
 mdaplot <- function () {
-  dirfiles <- paste(system.file(package='rhep'), "/shinyapps/mdaplot", sep="")
+  dirfiles <- paste(system.file(package = "rhep"), "/shinyapps/mdaplot", sep = "")
   shiny::runApp(dirfiles)
 }

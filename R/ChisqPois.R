@@ -16,14 +16,16 @@
 #' chisq.pois(x, f)
 #' @export
 
-chisq.pois <- function(x, f, lambda = NULL){
+chisq.pois <- function(x, f, lambda = NULL) {
 
   # Compute parameter
 
-  if (is.null(lambda) == 1){
-    lambda <- sum(x*f) / sum(f)
+  if (is.null(lambda)) {
+    lambda <- sum(x * f) / sum(f)
     k <- 1
-  } else k <- 0
+  } else {
+    k <- 0
+  }
 
   # Expected frequencies
 
@@ -31,10 +33,10 @@ chisq.pois <- function(x, f, lambda = NULL){
   nc <- length(xc)
   obs <- rep(0, nc)
   for (i in 1:length(f))
-    obs[x[i]+1] <- f[i]
+    obs[x[i] + 1] <- f[i]
   prob <- dpois(xc, lambda)
   prob[length(xc)] <- 1 - ppois(max(x) - 1, lambda)
-  esp <- sum(f)*prob
+  esp <- sum(f) * prob
 
   # Grouping categories
 
@@ -42,8 +44,8 @@ chisq.pois <- function(x, f, lambda = NULL){
 
   xc <- as.character(xc[min(lz):max(lz)])
   if(min(lz) > 1)
-    xc[1] <- paste("0-", xc[1], sep="")
-  xc[length(xc)] <- paste(xc[length(xc)], "+", sep="")
+    xc[1] <- paste("0-", xc[1], sep = "")
+  xc[length(xc)] <- paste(xc[length(xc)], "+", sep = "")
 
   obs <- obs[min(lz):max(lz)]
   esp[min(lz)] <- sum(esp[1:min(lz)])
@@ -52,7 +54,7 @@ chisq.pois <- function(x, f, lambda = NULL){
 
   # Chi-square statistic
 
-  chisq <- (obs - esp)^2/esp
+  chisq <- (obs - esp)^2 / esp
   chisq.t <- sum(chisq)
   dft <- length(chisq) - k - 1
   pvt <- 1 - pchisq(chisq.t, dft)
@@ -60,19 +62,19 @@ chisq.pois <- function(x, f, lambda = NULL){
   # Warnings
 
   if (sum(esp < 5) ==  1)
-    warning(paste(sum(esp < 5), "expected frequency less than 5."))
+    warning(paste(sum(esp < 5), "Expected frequency less than 5."))
   if (sum(esp < 5) > 1)
-    warning(paste(sum(esp < 5), "expected frequencies less than 5."))
+    warning(paste(sum(esp < 5), "Expected frequencies less than 5."))
 
   if (sum(esp < 1) == 1)
-    warning(paste(sum(esp < 1), "expected frequency less than 1."))
+    warning(paste(sum(esp < 1), "Expected frequency less than 1."))
   if (sum(esp < 1) > 1)
-    warning(paste(sum(esp < 1), "expected frequencies less than 1."))
+    warning(paste(sum(esp < 1), "Expected frequencies less than 1."))
 
   # Return
 
   dist.info <- paste("Chi-square goodness of fit test for a Poisson(",
-                     format(lambda, digits = 4), ") distribution", sep="")
+                     format(lambda, digits = 4), ") distribution", sep = "")
 
   tabla <- data.frame(x = xc, obs.f = obs, exp.f = esp, chisq.cont = chisq)
   tabla$x <- as.character(tabla$x)
