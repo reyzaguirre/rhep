@@ -104,6 +104,8 @@ minota <- function(curso = NULL, vez = NULL, pp = NULL, prob = 0.95,
     }
   }
 
+  # Correr modelo
+
   model <- lm(formula, data = subdata)
 
   # Prediccion

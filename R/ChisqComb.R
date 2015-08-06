@@ -33,7 +33,7 @@ chisq.comb <- function(chisq.test, combine) {
     stop("Only categories on the extremes can be combined.")
 
   if(lower == 1) {
-    chisq.test$Contribution_table <- temp[upper:top,]
+    chisq.test$Contribution_table <- temp[upper:top, ]
     chisq.test$Contribution_table[1, 1] <- paste("0-", temp[upper, 1], sep = "")
     chisq.test$Contribution_table[1, 2] <- sum(temp[1:upper, 2])
     chisq.test$Contribution_table[1, 3] <- sum(temp[1:upper, 3])

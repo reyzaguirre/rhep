@@ -35,22 +35,23 @@ tfreq <- function(data, limits = NULL, open = "right") {
 
   nd <- length(data)
 
-  if (is.null(limits)){
+  if (is.null(limits)) {
     ndp <- 0
     for (i in 1:nd)
       ndp <- max(ndp, nchar(strsplit(as.character(data[i]), ".", fixed = TRUE)[[1]])[2])
     k <- round(1 + 3.3 * log10(nd))
     r <- range(data)[2] - range(data)[1]
-    c <- ceiling(r / k * 10^ndp) / 10^ndp
-    limits <- seq(min(data), min(data) + c * k, c)
-  } else
+    tic <- ceiling(r / k * 10^ndp) / 10^ndp
+    limits <- seq(min(data), min(data) + tic * k, tic)
+  } else {
     k <- length(limits) - 1
+  }
 
   # Table
 
   cl <- paste(as.character(limits)[1:k], "-", as.character(limits)[2:(k + 1)])
   cm <- ((limits)[1:k] + (limits)[2:(k + 1)]) / 2
-  fi <- as.numeric(table(cut(datos, limits, right = FALSE)))
+  fi <- as.numeric(table(cut(data, limits, right = FALSE)))
   hi <- fi / nd
   Fi <- cumsum(fi)
   Hi <- cumsum(hi)

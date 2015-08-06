@@ -17,6 +17,7 @@
 #' @examples
 #' # The number of permutations of the letters in the set M = {A, A, A, B, B, C}
 #' multcoef(6, c(3, 2, 1))
+#'
 #' # Same result with
 #' multcoef(6, c(3, 2))
 #' @export

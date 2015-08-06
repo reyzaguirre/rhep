@@ -26,10 +26,11 @@ For a set \eqn{M} with \eqn{k} unique elements with associate counts
 argument the counts that are bigger than 1.
 }
 \examples{
-# The number of permutations of the letters in the set M = {A,A,A,B,B,C}
-multcoef(6, c(3,2,1))
+# The number of permutations of the letters in the set M = {A, A, A, B, B, C}
+multcoef(6, c(3, 2, 1))
+
 # Same result with
-multcoef(6, c(3,2))
+multcoef(6, c(3, 2))
 }
 \author{
 Raul Eyzaguirre.
