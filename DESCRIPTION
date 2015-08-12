@@ -1,7 +1,7 @@
 Package: rhep
 Type: Package
 Title: Raul Eyzaguirre's R code
-Version: 0.2.0
+Version: 0.2.1
 Date: 2015-04-28
 Author: Raúl Eyzaguirre
 Maintainer: Raúl Eyzaguirre <reyzaguirre@gmail.com>
