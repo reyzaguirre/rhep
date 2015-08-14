@@ -2,6 +2,7 @@
 #'
 #' Esta función predice la nota final del curso basado en datos históricos y un
 #' modelo de regresión lineal.
+#'
 #' @param curso 1 o 2 (corresponde a EP1 o EP2).
 #' @param vez Número de veces que se lleva el curso (1, 2 o 3).
 #' @param pp Promedio ponderado.
