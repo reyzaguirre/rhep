@@ -23,9 +23,6 @@
 #' @export
 
 multcoef <- function(n, counts) {
-  np <- factorial(n)
-  lc <- length(counts)
-  for (i in 1:lc)
-    np <- np / factorial(counts[i])
-  return(np)
+  np <- sum(lfactorial(n), -lfactorial(counts))
+  return(exp(np))
 }
