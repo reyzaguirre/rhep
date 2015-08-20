@@ -36,12 +36,11 @@ tfreq <- function(data, limits = NULL, open = "right") {
   nd <- length(data)
 
   if (is.null(limits)) {
-    ndp <- 0
-    for (i in 1:nd)
-      ndp <- max(ndp, nchar(strsplit(as.character(data[i]), ".", fixed = TRUE)[[1]])[2])
+    ndp <- sapply(data, function(x) nchar(strsplit(as.character(x), ".", fixed = TRUE)[[1]])[2])
+    ndpm <- max(ndp, na.rm = TRUE)
     k <- round(1 + 3.3 * log10(nd))
     r <- range(data)[2] - range(data)[1]
-    tic <- ceiling(r / k * 10^ndp) / 10^ndp
+    tic <- ceiling(r / k * 10^ndpm) / 10^ndpm
     limits <- seq(min(data), min(data) + tic * k, tic)
   } else {
     k <- length(limits) - 1
