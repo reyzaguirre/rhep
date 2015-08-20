@@ -32,8 +32,7 @@ chisq.pois <- function(x, f, lambda = NULL) {
   xc <- 0:max(x)
   nc <- length(xc)
   obs <- rep(0, nc)
-  for (i in 1:length(f))
-    obs[x[i] + 1] <- f[i]
+  obs[x + 1] <- f
   prob <- dpois(xc, lambda)
   prob[length(xc)] <- 1 - ppois(max(x) - 1, lambda)
   esp <- sum(f) * prob

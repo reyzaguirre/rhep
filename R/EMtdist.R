@@ -32,8 +32,7 @@ emtd <- function(y, v, initmu = mean(y), inits = sd(y), tol = 0.0001) {
   j <- 1
   while(tol < emax) {
     # E-step
-    for (i in 1:length(y))
-      w[i] <- ((v + 1) * s2[j]) / ((y[i] - mu[j])^2 + v * s2[j])
+    w <- sapply(y, function(x) ((v + 1) * s2[j]) / ((x - mu[j])^2 + v * s2[j]))
     # M-step
     j <- j + 1
     mu[j] <- sum(w * y) / sum(w)

@@ -31,10 +31,9 @@ chisq.bin <- function(x, f, n = NULL, p = NULL) {
   # Expected frequencies
 
   xc <- 0:n
-  nc <- length(xc)
+  nc <- n + 1
   obs <- rep(0, nc)
-  for (i in 1:length(f))
-    obs[x[i] + 1] <- f[i]
+  obs[x + 1] <- f
   prob <- dbinom(xc, n, p)
   esp <- sum(f) * prob
 
