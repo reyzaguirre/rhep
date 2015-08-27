@@ -7,8 +7,8 @@ rhep
 
 Raul Eyzaguirre's R code.
 
-### Installation
-
+Installation
+------------
 To install this package you need package `devtools`:
 
 ```{r eval=F}
@@ -21,8 +21,8 @@ Then type:
 devtools::install_github("reyzaguirre/rhep")
 ```
 
-### Usage
-
+Usage
+-----
 To load the package type:
 
 ```{r eval=F}
