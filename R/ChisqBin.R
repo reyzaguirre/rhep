@@ -15,6 +15,7 @@
 #' x <- 0:6
 #' f <- c(334, 369, 191, 63, 22, 12, 9)
 #' chisq.bin(x, f, n = 10)
+#' @importFrom stats dbinom pchisq
 #' @export
 
 chisq.bin <- function(x, f, n = NULL, p = NULL) {

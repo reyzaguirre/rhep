@@ -1,26 +1,27 @@
 #' Predice la nota final del curso EP1 y EP2
 #'
-#' Esta función predice la nota final del curso basado en datos históricos y un
-#' modelo de regresión lineal.
+#' Esta funcion predice la nota final del curso basado en datos historicos y un
+#' modelo de regresion lineal.
 #'
 #' @param curso 1 o 2 (corresponde a EP1 o EP2).
-#' @param vez Número de veces que se lleva el curso (1, 2 o 3).
+#' @param vez Numero de veces que se lleva el curso (1, 2 o 3).
 #' @param pp Promedio ponderado.
-#' @param prob Probabilidad para la predicción.
-#' @param pa1 Práctica de aula 1.
-#' @param pa2 Práctica de aula 2.
-#' @param pa3 Práctica de aula 3.
-#' @param pa4 Práctica de aula 4.
-#' @param pi1 Práctica integrada 1.
-#' @param pi2 Práctica integrada 2.
+#' @param prob Probabilidad para la prediccion.
+#' @param pa1 Practica de aula 1.
+#' @param pa2 Practica de aula 2.
+#' @param pa3 Practica de aula 3.
+#' @param pa4 Practica de aula 4.
+#' @param pi1 Practica integrada 1.
+#' @param pi2 Practica integrada 2.
 #' @param ep Examen parcial.
-#' @author Raúl Eyzaguirre.
-#' @details No es necesario introducir todos los parámetros, el modelo solo
+#' @author Raul Eyzaguirre.
+#' @details No es necesario introducir todos los parametros, el modelo solo
 #' considera los que son introducidos.
-#' @return Devuelve la nota final estimada con un intervalo de predicción,
-#' y el coeficiente de determinación del modelo.
+#' @return Devuelve la nota final estimada con un intervalo de prediccion,
+#' y el coeficiente de determinacion del modelo.
 #' @examples
 #' minota(curso = 1, pa1 = 12)
+#' @importFrom stats as.formula lm predict
 #' @export
 
 minota <- function(curso = NULL, vez = NULL, pp = NULL, prob = 0.95,
@@ -38,7 +39,7 @@ minota <- function(curso = NULL, vez = NULL, pp = NULL, prob = 0.95,
 
   if (!is.null(vez))
     if (vez != 1 & vez != 2 & vez != 3)
-      stop("Ingrese valor correcto para número de veces que lleva el curso: 1, 2 o 3.")
+      stop("Ingrese valor correcto para numero de veces que lleva el curso: 1, 2 o 3.")
 
   if (!is.null(pp))
     if (pp < 0 | pp > 20)
@@ -121,7 +122,7 @@ minota <- function(curso = NULL, vez = NULL, pp = NULL, prob = 0.95,
 
   pfinal <- cbind(pfinal, prob)
 
-  colnames(pfinal) <- c("Predicción", "Mínima", "Máxima", "Probabilidad")
+  colnames(pfinal) <- c("Prediccion", "Minima", "Maxima", "Probabilidad")
 
   # Output
 

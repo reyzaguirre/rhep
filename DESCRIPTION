@@ -1,8 +1,8 @@
 Package: rhep
 Type: Package
 Title: Raul Eyzaguirre's R code
-Version: 0.2.2
-Date: 2015-08-20
+Version: 0.2.3
+Date: 2016-06-20
 Author: Raúl Eyzaguirre
 Maintainer: Raúl Eyzaguirre <reyzaguirre@gmail.com>
 Description: Miscellaneous R functions.
@@ -16,4 +16,4 @@ LazyData: true
 Suggests:
     testthat
 Encoding: UTF-8
-RoxygenNote: 5.0.1.9000
+RoxygenNote: 5.0.1

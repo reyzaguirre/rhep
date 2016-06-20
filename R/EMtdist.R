@@ -13,11 +13,9 @@
 #' standard deviation.
 #' @return It returns the estimated location and scale parameters for each iteration.
 #' @examples
-#' # Some data
 #' y = c(10, 12, 16, 15, 15, 17, 20, 21, 16, 24, 13, 22, 14, 15, 16, 16, 17, 18, 19, 18, 23, 20, 30)
-#'
-#' # Estimates for a t(10)
 #' emtd(y, 10)
+#' @importFrom stats sd
 #' @export
 
 emtd <- function(y, v, initmu = mean(y), inits = sd(y), tol = 0.0001) {
