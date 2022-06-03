@@ -1,19 +1,18 @@
 Package: rhep
 Type: Package
 Title: Raul Eyzaguirre's R code
-Version: 0.2.3
-Date: 2016-06-20
+Version: 0.3.0
+Date: 2022-06-03
 Author: Raúl Eyzaguirre
 Maintainer: Raúl Eyzaguirre <reyzaguirre@gmail.com>
 Description: Miscellaneous R functions.
 Depends:
     R (>= 3.0.0)
 Imports:
-    shiny,
-    sn
+    shiny
 License: GPL-3
 LazyData: true
 Suggests:
     testthat
 Encoding: UTF-8
-RoxygenNote: 5.0.1
+RoxygenNote: 7.1.2
