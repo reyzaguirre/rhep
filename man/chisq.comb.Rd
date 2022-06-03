@@ -34,6 +34,5 @@ output <- chisq.bin(x, f, n = 10)
 chisq.comb(output, combine = c(5, 6, 7))
 }
 \author{
-Raul Eyzaguirre.
+Raúl Eyzaguirre.
 }
-

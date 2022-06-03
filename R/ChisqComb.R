@@ -4,7 +4,7 @@
 #' @param chisq.test The output of a chi-square goodness of fit test by functions \code{chisq.bin}
 #' or \code{chisq.Pois}.
 #' @param combine A vector with the numbers of the categories to combine.
-#' @author Raul Eyzaguirre.
+#' @author Raúl Eyzaguirre.
 #' @details This function only cobines categories on the extremes.
 #' It is recommended to combine categories when the expected counts are too low.
 #' As a rule of thumb, the chi-square approximation for the test statistic can be unreliable

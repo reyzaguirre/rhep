@@ -33,6 +33,5 @@ f <- c(334, 369, 191, 63, 22, 12, 9)
 chisq.bin(x, f, n = 10)
 }
 \author{
-Raul Eyzaguirre.
+Raúl Eyzaguirre.
 }
-

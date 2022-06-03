@@ -33,6 +33,5 @@ y = c(10, 12, 16, 15, 15, 17, 20, 21, 16, 24, 13, 22, 14, 15, 16, 16, 17, 18, 19
 emtd(y, 10)
 }
 \author{
-Raul Eyzaguirre.
+Raúl Eyzaguirre.
 }
-

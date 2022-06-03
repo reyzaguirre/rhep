@@ -5,7 +5,7 @@
 #' @param limits The class limits.
 #' @param open Where to leave the class limits open, \code{left} or \code{right}.
 #' Defaults to \code{right}.
-#' @author Raul Eyzaguirre.
+#' @author Raúl Eyzaguirre.
 #' @details If class limits are not specified, the Sturges' rule is used to calculate the
 #' number of class intervals \eqn{k}:
 #' \deqn{k \approx 1 + 3.3 \log n}

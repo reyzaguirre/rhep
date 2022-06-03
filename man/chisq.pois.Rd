@@ -31,6 +31,5 @@ f <- c(6, 16, 48, 77, 72, 72, 46, 39, 15, 9)
 chisq.pois(x, f)
 }
 \author{
-Raul Eyzaguirre.
+Raúl Eyzaguirre.
 }
-

@@ -33,6 +33,5 @@ multcoef(6, c(3, 2, 1))
 multcoef(6, c(3, 2))
 }
 \author{
-Raul Eyzaguirre.
+Raúl Eyzaguirre.
 }
-

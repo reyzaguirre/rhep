@@ -5,7 +5,7 @@
 #' @param f The observed counts.
 #' @param n Binomial parameter n.
 #' @param p Binomial parameter pi.
-#' @author Raul Eyzaguirre.
+#' @author Raúl Eyzaguirre.
 #' @details If \code{p} is not specified, then it is estimated from the data.
 #' If there are categories with expected counts less than 5 or less than 1 a warning
 #' is shown.
